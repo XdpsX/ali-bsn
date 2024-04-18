@@ -1,8 +1,11 @@
-package com.alibou.book.feedback;
+package com.alibou.book.history;
 
 import com.alibou.book.book.Book;
 import com.alibou.book.common.BaseEntity;
-import jakarta.persistence.*;
+import com.alibou.book.user.User;
+import jakarta.persistence.Entity;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,13 +18,16 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Feedback extends BaseEntity {
+public class BookTransactionHistory extends BaseEntity {
 
-    private Integer note;
-    private String comment;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 
     @ManyToOne
     @JoinColumn(name = "book_id")
     private Book book;
 
+    private boolean returned;
+    private boolean returnApproved;
 }
