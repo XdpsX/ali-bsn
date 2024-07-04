@@ -22,7 +22,7 @@ services:
       - 1025:1025
   bsn-api:
     container_name: bsn-api
-    image: bsn/bsn:1.0.2
+    image: bsn/bsn:1.0.3
     ports:
       - 8088:8088
     networks:
