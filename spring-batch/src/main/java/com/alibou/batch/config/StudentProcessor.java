@@ -7,6 +7,7 @@ public class StudentProcessor implements ItemProcessor<Student,Student> {
 
     @Override
     public Student process(Student student) {
+        student.setId(null);
         return student;
     }
 }

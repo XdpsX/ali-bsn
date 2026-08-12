@@ -77,7 +77,15 @@ public class BatchConfig {
                 .reader(reader())
                 .processor(processor())
                 .writer(writer())
+                .taskExecutor(taskExecutor())
                 .build();
+    }
+
+    @Bean
+    public TaskExecutor taskExecutor() {
+        SimpleAsyncTaskExecutor asyncTaskExecutor = new SimpleAsyncTaskExecutor();
+        asyncTaskExecutor.setConcurrencyLimit(10);
+        return asyncTaskExecutor;
     }
 
     @Bean
