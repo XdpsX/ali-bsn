@@ -1,0 +1,1 @@
+alter collation postgres refresh version; -- Refresh the version of the 'postgres' collation -> no warning
